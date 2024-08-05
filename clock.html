@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Countdown Clock</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.rawgit.com/objectivehtml/FlipClock/master/compiled/flipclock.css"
+    />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <!-- jQuery CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- FlipClock CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+    <!-- Moment.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.36/moment-timezone-with-data.min.js"></script>
+  </head>
+  <body>
+    <form id="countdownForm">
+      <label for="selectedDate">Select Date:</label>
+      <input type="date" id="selectedDate" name="selectedDate" />
+
+      <label for="hours">Hours:</label>
+      <select id="hours" name="hours"></select>
+
+      <label for="minutes">Minutes:</label>
+      <input
+        type="number"
+        id="minutes"
+        name="minutes"
+        min="0"
+        max="59"
+        required
+      />
+
+      <label for="ampm">AM/PM:</label>
+      <select id="ampm" name="ampm">
+        <option value="am">AM</option>
+        <option value="pm">PM</option>
+      </select>
+
+      <button type="submit">Start Countdown</button>
+    </form>
+    <div class="clock"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var selectElement = document.getElementById("hours");
+        for (var i = 1; i <= 12; i++) {
+          var option = document.createElement("option");
+          option.value = i.toString();
+          option.text = i.toString();
+          selectElement.add(option);
+        }
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
